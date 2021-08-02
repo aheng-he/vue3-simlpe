@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computed</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="./node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+
+    <script>
+        let { ref, effect, toRef, reactive, toRefs, computed } = VueReactivity
+
+        const proxy = reactive({ name: 'hyh', age: 12 })
+
+        let newAge = computed(() => { // 计算属性也是一个effect age会收集计算属性的effect
+            return proxy.age * 2
+        })
+
+        // newAge.value;
+        // newAge.value;
+        // newAge.value;
+
+        // proxy.age = 100;
+        // console.log(newAge.value)
+
+
+        effect(() => {
+            // 计算属性又收集依赖的功能，可以收集effect
+            console.log(newAge.value)
+        })
+
+        proxy.age = 100;
+
+        // age 会收集computed, computed 会收集他所在的effect
+        // 更新age -> computed effect (dirty = true) 触发计算属性对应的effect让他执行
+
+        // computed({
+        //     get(){
+
+        //     },
+        //     set(){
+
+        //     }
+        // })
+
+    </script>
+</body>
+
+</html>

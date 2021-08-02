@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+
+    <script>
+        let { ref, effect, toRef, reactive, toRefs } = VueReactivity
+
+        // const proxy = reactive({ name: 'hyh' })
+        // let nameRef = toRef(proxy, 'name')
+        // console.log(nameRef)
+        // effect(() => {
+        //     console.log(nameRef.value)
+        // })
+        // setTimeout(()=>{
+        //     nameRef.value = 100
+
+        // }, 1000)
+
+        // const proxy1 = reactive([1,2,3,4])
+        // let [a,b,c,d] = toRefs(proxy1)
+        // console.log(a, b, c, d)
+
+        const proxy1 = reactive([{ a: 1 }, { b: 2 }])
+        let [a, b] = toRefs(proxy1)
+        console.log(a, b)
+        console.log(`a.value`, a.value)
+    </script>
+</body>
+
+</html>

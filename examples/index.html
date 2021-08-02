@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+
+    <script>
+        let { reactive, shallowReactive, readonly, shallowReadonly, effect } = VueReactivity;
+        let wife = { name: '763', age: 18, address: { num: 888 } }
+        let wife1 = { name: '763', age: 18, address: { num: 888 } }
+        let proxy = reactive(wife);  // 在effect中取值的时候会收集依赖，赋值的时候会重新执行effect
+        let shallowProxy = shallowReactive(wife1)
+
+        // effect 会默认执行，执行时会收集属性的依赖
+        effect(() => {
+            app.innerHTML = proxy.name + ':' + proxy.age + "-" + proxy.address.num
+            app.innerHTML += shallowProxy.name + ':' + shallowProxy.age + "-" + shallowProxy.address.num
+        })
+
+        setTimeout(() => {
+            proxy.age = proxy.age + 1
+            shallowProxy.age = shallowProxy.age + 1
+        }, 1000)
+        setTimeout(() => {
+            proxy.address.num++
+            shallowProxy.address.num++
+        }, 1000)
+        console.log(`proxy`, proxy)
+
+
+        // reactive 会将对象的所有对象都进行代理
+        // shallowReactive 只代理第一层对象
+    </script>
+</body>
+
+</html>

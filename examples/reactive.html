@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+
+    <script>
+        let { reactive, shallowReactive, readonly, shallowReadonly } = VueReactivity
+
+        // 同一个代理对象，相同的代理方式，只会代理一次，因为，内部有缓存
+        let wife = {name: '763', age: '18'}
+        let obj1 = reactive(wife)
+        let obj2 = reactive(obj1)
+        let obj3 = shallowReactive(obj1)
+        let obj4 = readonly(wife)
+        console.log(`obj1 == obj2`, obj1 == obj2)
+        console.log(`obj1 == obj2`, obj1 == obj3)
+        console.log(`obj1 == obj2`, obj1 == obj4)
+        // obj4.age = 1;
+
+        let temp = {
+            arr: [1,2,3]
+        }
+        let proxy = reactive(temp)
+        proxy.arr.push(4)
+        proxy.arr[0] = 100
+    </script>
+</body>
+
+</html>
