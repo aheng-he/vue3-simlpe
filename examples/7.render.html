@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- vue3中有5个大模块，reactivity runtime-dom runtime-core compiler-dom  -->
+
+    <script src="../node_modules/@vue/runtime-dom/dist/runtime-dom.global.js"></script>
+
+    <script>
+        const { createApp, h } = VueRuntimeDOM;
+
+        const App = {
+            render: () => {
+                return h('h1', 'hello vue3'); // 创建虚拟节点
+            }
+        }
+
+        // createApp 就是将虚拟节点，变成真正的节点，最后插入元素中 
+        createApp(App).mount("#app")
+
+    </script>
+</body>
+
+</html>

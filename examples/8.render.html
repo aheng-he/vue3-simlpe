@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- vue3中有5个大模块，reactivity runtime-dom runtime-core compiler-dom  -->
+
+    <script src="./node_modules/@vue/runtime-dom/dist/runtime-dom.global.js"></script>
+
+    <script>
+        const { createApp, h } = VueRuntimeDOM;
+
+        const App = {
+            render: () => {
+                return h('h1', 'hello vue3'); // 创建虚拟节点
+            }
+        }
+
+        // createApp 就是将虚拟节点，变成真正的节点，最后插入元素中 
+        createApp(App).mount("#app")
+        /**
+         * Vue3 组件构建基本流程
+         * 
+         * 将组件变成vnode => 再将vnode变成真实的dom => 插入到页面上
+         * 
+         * render方法的作用就是可以渲染一个虚拟节点，将它挂载到具体的dom上
+         * vue3 的执行核心就在patch这个方法上
+         * 
+         * 组件创建过程 mountComponent
+         *  1. 创建一个组件实例 instance -> 初始化  createComponentInstance()
+         *  2. 根据用户传入的组件，来填充instance对象  setupComponent() 调用setup
+         *  3. （每个组件都是一个effect）创建effect，并且调用render方法，数据会将对应的effect收集起来
+         *  4. 拿到render方法返回的结果，再次走渲染流程 -> patch
+         * 
+         * 
+         * 组件渲染的顺序，先父后子 深度优先
+         * 
+        */
+    </script>
+</body>
+
+</html>

@@ -1,3 +1,3 @@
-export default {
-    temp: 1
-}
+export { createRenderer } from './renderer'
+
+export { h } from "./h"
