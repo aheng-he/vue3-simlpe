@@ -22,7 +22,11 @@ export let hasOwn = (target, key) => Object.prototype.hasOwnProperty.call(target
 
 export let isVnode = (vnode) => vnode.__v_isVnode === true
 
-export const enum ShapFlags {
+export const isSameVnode = (n1, n2) => {
+    return n1.type == n2.type && n1.key == n2.key; // 是同一个元素
+}
+
+export const enum ShapeFlags {
     ELEMENT = 1,  // 标识是一个元素
     FUNCTIONAL_COMPONENT = 1 << 1,  // 函数组件
     STATEFUL_COMPONENT = 1 << 2,  // 带状态组件
@@ -33,5 +37,5 @@ export const enum ShapFlags {
     SUSPENSE = 1 << 7,  // 实现异步组件等待
     COMPONENT_SHOULD_KEEP_ALIVE = 1 << 8,  // 是否需要keep-alive
     COMPONENT_KEEP_ALIVE = 1 << 9,  // 组件的keep-alive
-    COMPONET = ShapFlags.STATEFUL_COMPONENT | ShapFlags.FUNCTIONAL_COMPONENT
+    COMPONET = ShapeFlags.STATEFUL_COMPONENT | ShapeFlags.FUNCTIONAL_COMPONENT
 }

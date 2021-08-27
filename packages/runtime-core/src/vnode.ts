@@ -1,9 +1,9 @@
-import { isArray, isObject, isString, ShapFlags } from "@vue/shared"
+import { isArray, isObject, isString, ShapeFlags } from "@vue/shared"
 
 export function createVnode(type, props, children = null) {
 
     const shapeFlag = isString(type) ?
-        ShapFlags.ELEMENT : isObject(type) ? ShapFlags.STATEFUL_COMPONENT : 0
+        ShapeFlags.ELEMENT : isObject(type) ? ShapeFlags.STATEFUL_COMPONENT : 0
     const vnode = {
         __v_isVnode: true,
         type,
@@ -23,9 +23,9 @@ function normalizeChildren(vnode, children) {  // 将儿子的类型同一记录
     if (children == null) {
 
     } else if (isArray(children)) {
-        type = ShapFlags.ARRAY_CHILDREN
+        type = ShapeFlags.ARRAY_CHILDREN
     } else {
-        type = ShapFlags.TEXT_CHILDREN
+        type = ShapeFlags.TEXT_CHILDREN
     }
     vnode.shapeFlag |= type
 }

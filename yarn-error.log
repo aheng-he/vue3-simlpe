@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\86130\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @vue-next -W
+  C:\Program Files\nodejs\node.exe C:\Users\86130\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add typescripts -W
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\86130\bin;C:\Program Files (x86)\NetSarang\Xshell 6;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\Dart\dart-sdk\bin;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Program Files\Java\jdk1.8.0_231\jre\bin;E:\Flutter\flutter\bin;C:\Program Files\MongoDB\Server\4.2\bin;C:\Program Files (x86)\cmder\bin;C:\Program Files\MongoDB\Server\4.2;C:\Users\86130\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\86130\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\86130\AppData\Local\Programs\Python\Python37;C:\Users\86130\AppData\Local\Microsoft\WindowsApps;C:\Users\86130\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\86130\AppData\Roaming\npm;C:\Users\86130\AppData\Local\GitHubDesktop\bin;E:\Flutter\flutter\bin;C:\Users\86130\AppData\Local\BypassRuntm;C:\Users\86130\AppData\Roaming\nvm;C:\Program Files\nodejs
@@ -14,8 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/@vue-next: Request "https://registry.npm.taobao.org/@vue-next" returned a 405
-      at Request.params.callback [as _callback] (C:\Users\86130\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66935:18)
+  Error: https://registry.npm.taobao.org/typescripts: Not found
+      at Request.params.callback [as _callback] (C:\Users\86130\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66926:18)
       at Request.self.callback (C:\Users\86130\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140564:22)
       at Request.emit (events.js:210:5)
       at Request.<anonymous> (C:\Users\86130\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141536:10)
@@ -379,11 +379,6 @@ Lockfile:
     version "2.1.0"
     resolved "https://registry.nlark.com/tslib/download/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
     integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
-  
-  typescript@^4.3.5:
-    version "4.3.5"
-    resolved "https://registry.nlark.com/typescript/download/typescript-4.3.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftypescript%2Fdownload%2Ftypescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
-    integrity sha1-TRw3zBbok5c8RaBohrcRMjTxGfQ=
   
   universalify@^0.1.0:
     version "0.1.2"
